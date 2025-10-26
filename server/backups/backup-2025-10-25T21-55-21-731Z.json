@@ -1,0 +1,300 @@
+{
+  "users": [
+    {
+      "_id": "68fbe0b0e6ec6644952aa85a",
+      "name": "Mafidul Islam",
+      "email": "nofinoruralfinance@gmail.com",
+      "password": "$2b$12$OWYHu4DovjotJ14crCJ9gOnwOzqSEUefzj3Vsr6fBtowi8kMQkpGS",
+      "role": "admin",
+      "phone": "06000457268",
+      "address": {
+        "street": "Mandia",
+        "city": "Barpeta",
+        "state": "Assam",
+        "zipCode": "781308"
+      },
+      "createdAt": "2025-10-24T20:25:20.078Z",
+      "__v": 0,
+      "active": true,
+      "updatedAt": "2025-10-25T10:22:56.239Z"
+    },
+    {
+      "_id": "68fbe10fe6ec6644952aa874",
+      "name": "Habibar Rahaman",
+      "email": "user@gmail.com",
+      "password": "$2b$12$b8tRQTL3jFifh.AIhBqMyuprNmEsOqAlOjNbKcYTwazlYtOOsq2s2",
+      "role": "user",
+      "phone": "06000457268",
+      "address": {
+        "street": "Mandia Gaon",
+        "city": "Barpeta",
+        "state": "Assam",
+        "zipCode": "781308"
+      },
+      "createdAt": "2025-10-24T20:26:55.760Z",
+      "__v": 0,
+      "active": true,
+      "updatedAt": "2025-10-25T10:23:00.255Z"
+    },
+    {
+      "_id": "68fd2d83f443a3ee4be0da9c",
+      "name": "Habibar Rahaman444",
+      "email": "7002079156@gmail.com",
+      "password": "$2b$12$t6QderJm9TdTlVekAP9zTe6JEjBuWGm8XjxCBwB559QZ/n1eY/YRS",
+      "role": "user",
+      "phone": "06000457268",
+      "address": {
+        "street": "Mandia",
+        "city": "Barpeta",
+        "state": "Assam",
+        "zipCode": "781308"
+      },
+      "active": true,
+      "createdAt": "2025-10-25T20:05:23.325Z",
+      "updatedAt": "2025-10-25T20:26:24.201Z",
+      "__v": 0
+    }
+  ],
+  "loans": [
+    {
+      "_id": "68fbe12fe6ec6644952aa87f",
+      "loanAccountNumber": "LN1761337647039145",
+      "user": "68fbe10fe6ec6644952aa874",
+      "amount": 50000,
+      "interestRate": 15,
+      "tenure": 12,
+      "emi": 4512.92,
+      "status": "active",
+      "purpose": "perosnal loan",
+      "createdAt": "2025-10-24T20:27:27.043Z",
+      "__v": 0,
+      "disbursedDate": "2025-10-25T09:45:10.990Z"
+    },
+    {
+      "_id": "68fbf0dde6ec6644952aaf4b",
+      "loanAccountNumber": "LN1761341661897580",
+      "user": "68fbe0b0e6ec6644952aa85a",
+      "amount": 50000,
+      "interestRate": 12,
+      "tenure": 12,
+      "emi": 4442.44,
+      "status": "active",
+      "purpose": "dedfe",
+      "createdAt": "2025-10-24T21:34:21.900Z",
+      "__v": 0,
+      "disbursedDate": "2025-10-25T09:44:44.663Z"
+    },
+    {
+      "_id": "68fc9d2477f6d9ba366c2201",
+      "loanAccountNumber": "LN1761385764685868",
+      "user": "68fbe0b0e6ec6644952aa85a",
+      "amount": 20000,
+      "interestRate": 12,
+      "tenure": 12,
+      "emi": 1776.98,
+      "status": "active",
+      "purpose": "My Loan",
+      "createdAt": "2025-10-25T09:49:24.693Z",
+      "__v": 0,
+      "disbursedDate": "2025-10-25T09:50:30.691Z"
+    },
+    {
+      "_id": "68fcf53521758213433ef4e2",
+      "loanAccountNumber": "LN1761408309541997",
+      "user": "68fbe0b0e6ec6644952aa85a",
+      "amount": 456666,
+      "interestRate": 12,
+      "tenure": 60,
+      "emi": 10158.28,
+      "status": "rejected",
+      "purpose": "sdsds",
+      "createdAt": "2025-10-25T16:05:09.543Z",
+      "__v": 0
+    },
+    {
+      "_id": "68fd3a2bf443a3ee4be0e054",
+      "loanAccountNumber": "LN1761425963781842",
+      "user": "68fbe0b0e6ec6644952aa85a",
+      "amount": 567777,
+      "interestRate": 15,
+      "tenure": 60,
+      "emi": 13507.38,
+      "status": "pending",
+      "purpose": "rrrr",
+      "createdAt": "2025-10-25T20:59:23.782Z",
+      "__v": 0
+    }
+  ],
+  "transactions": [
+    {
+      "_id": "68fd24a4f23e4f85523b49d6",
+      "transactionId": "TXN1761420452549793",
+      "user": "68fbe10fe6ec6644952aa874",
+      "loan": "68fcf53521758213433ef4e2",
+      "amount": 2222,
+      "type": "emi_payment",
+      "status": "completed",
+      "paymentMethod": "upi",
+      "description": "",
+      "createdAt": "2025-10-25T19:27:32.560Z",
+      "updatedAt": "2025-10-25T19:30:01.565Z",
+      "__v": 0
+    },
+    {
+      "_id": "68fd2ac113a506541437196a",
+      "transactionId": "TXN1761422017499609",
+      "user": "68fbe0b0e6ec6644952aa85a",
+      "loan": "68fc9d2477f6d9ba366c2201",
+      "amount": 1776.98,
+      "type": "emi_payment",
+      "status": "completed",
+      "paymentMethod": "upi",
+      "description": "EMI Payment for Loan LN1761385764685868",
+      "createdAt": "2025-10-25T19:53:37.502Z",
+      "updatedAt": "2025-10-25T20:39:10.512Z",
+      "__v": 0
+    },
+    {
+      "_id": "68fd353bf443a3ee4be0de52",
+      "transactionId": "TXN1761424699600356",
+      "user": "68fbe0b0e6ec6644952aa85a",
+      "loan": "68fc9d2477f6d9ba366c2201",
+      "amount": 1776.98,
+      "type": "emi_payment",
+      "status": "completed",
+      "paymentMethod": "wallet",
+      "description": "EMI Payment for Loan LN1761385764685868",
+      "createdAt": "2025-10-25T20:38:19.602Z",
+      "updatedAt": "2025-10-25T20:39:08.863Z",
+      "__v": 0
+    },
+    {
+      "_id": "68fd357ef443a3ee4be0dede",
+      "transactionId": "TXN1761424766956255",
+      "user": "68fbe0b0e6ec6644952aa85a",
+      "loan": "68fbf0dde6ec6644952aaf4b",
+      "amount": 4442.44,
+      "type": "emi_payment",
+      "status": "failed",
+      "paymentMethod": "upi",
+      "description": "EMI Payment for Loan LN1761341661897580",
+      "createdAt": "2025-10-25T20:39:26.958Z",
+      "updatedAt": "2025-10-25T20:39:57.914Z",
+      "__v": 0
+    },
+    {
+      "_id": "68fd3731f443a3ee4be0dfce",
+      "transactionId": "TXN1761425201300321",
+      "user": "68fbe0b0e6ec6644952aa85a",
+      "loan": "68fc9d2477f6d9ba366c2201",
+      "amount": 1776.98,
+      "type": "emi_payment",
+      "status": "pending",
+      "paymentMethod": "upi",
+      "description": "EMI Payment for Loan LN1761385764685868",
+      "createdAt": "2025-10-25T20:46:41.302Z",
+      "updatedAt": "2025-10-25T20:46:41.304Z",
+      "__v": 0
+    },
+    {
+      "_id": "68fd3739f443a3ee4be0dfd2",
+      "transactionId": "TXN1761425209473855",
+      "user": "68fbe0b0e6ec6644952aa85a",
+      "loan": "68fbf0dde6ec6644952aaf4b",
+      "amount": 4442.44,
+      "type": "emi_payment",
+      "status": "pending",
+      "paymentMethod": "upi",
+      "description": "EMI Payment for Loan LN1761341661897580",
+      "createdAt": "2025-10-25T20:46:49.475Z",
+      "updatedAt": "2025-10-25T20:46:49.480Z",
+      "__v": 0
+    },
+    {
+      "_id": "68fd3743f443a3ee4be0dfe0",
+      "transactionId": "TXN1761425219961546",
+      "user": "68fbe0b0e6ec6644952aa85a",
+      "loan": "68fc9d2477f6d9ba366c2201",
+      "amount": 1776.98,
+      "type": "emi_payment",
+      "status": "pending",
+      "paymentMethod": "upi",
+      "description": "EMI Payment for Loan LN1761385764685868",
+      "createdAt": "2025-10-25T20:46:59.961Z",
+      "updatedAt": "2025-10-25T20:46:59.964Z",
+      "__v": 0
+    },
+    {
+      "_id": "68fd37a6f443a3ee4be0dff0",
+      "transactionId": "TXN1761425318941952",
+      "user": "68fbe0b0e6ec6644952aa85a",
+      "loan": "68fc9d2477f6d9ba366c2201",
+      "amount": 1776.98,
+      "type": "emi_payment",
+      "status": "pending",
+      "paymentMethod": "upi",
+      "description": "EMI Payment for Loan LN1761385764685868",
+      "createdAt": "2025-10-25T20:48:38.942Z",
+      "updatedAt": "2025-10-25T20:48:38.943Z",
+      "__v": 0
+    }
+  ],
+  "payments": [
+    {
+      "_id": "68fd2e62f443a3ee4be0db8d",
+      "transactionId": "TXN1761422946823196",
+      "user": "68fd2d83f443a3ee4be0da9c",
+      "loan": "68fcf53521758213433ef4e2",
+      "amount": 198888,
+      "type": "loan_disbursement",
+      "status": "completed",
+      "paymentMethod": "bank_transfer",
+      "description": "",
+      "createdAt": "2025-10-25T20:09:06.825Z",
+      "updatedAt": "2025-10-25T20:10:00.362Z",
+      "__v": 0
+    }
+  ],
+  "systemlogs": [
+    {
+      "_id": "68fd46da899f3d932468a52d",
+      "type": "diagnostics",
+      "action": "system_diagnostics_run",
+      "status": "success",
+      "details": {
+        "database": {
+          "status": "connected",
+          "connectionState": 1,
+          "databaseName": "bank_nofino",
+          "models": [
+            "User",
+            "Loan",
+            "Transaction",
+            "Payment",
+            "SystemLog"
+          ]
+        },
+        "server": {
+          "uptime": 17.3905221,
+          "nodeVersion": "v22.18.0",
+          "platform": "win32",
+          "memory": {
+            "rss": "95 MB",
+            "heapTotal": "31 MB",
+            "heapUsed": "28 MB",
+            "external": "21 MB"
+          }
+        },
+        "application": {
+          "environment": "development",
+          "timestamp": "2025-10-25T21:53:30.799Z"
+        }
+      },
+      "performedBy": "68fbe0b0e6ec6644952aa85a",
+      "performedAt": "2025-10-25T21:53:30.808Z",
+      "createdAt": "2025-10-25T21:53:30.820Z",
+      "updatedAt": "2025-10-25T21:53:30.820Z",
+      "__v": 0
+    }
+  ]
+}
