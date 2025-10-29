@@ -11,7 +11,7 @@ Cashfree.XClientId = process.env.CASHFREE_CLIENT_ID;
 Cashfree.XClientSecret = process.env.CASHFREE_CLIENT_SECRET;
 Cashfree.XEnvironment = process.env.NODE_ENV === 'production' 
   // ? Cashfree.Environment.PRODUCTION 
-  // : Cashfree.Environment.SANDBOX;
+  // : Cashfree.Environment.PROD;
 
 // Create payment order
 router.post('/create-order', auth, async (req, res) => {
