@@ -1,14 +1,20 @@
-import { View, Text, StyleSheet, Alert } from 'react-native'
-import React, { useState } from 'react'
-import InputBox from '../../components/Forms/InputBox'
-import SubmitButton from '../../components/Forms/SubmitButton'
+import { View, Text, StyleSheet, Alert } from 'react-native';
+import React, { useContext, useState } from 'react';
+import InputBox from '../../components/Forms/InputBox';
+import SubmitButton from '../../components/Forms/SubmitButton';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import axios from 'axios';
+import { AuthContext } from '../../context/AuthContext';
 
-const Login = ({navigation}) => {   
+const Login = ({navigation}) => {  
+    
+    const [state, setState] = useContext(AuthContext);
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         try {
             setLoading(true);
             if(!email || !password){
@@ -16,10 +22,19 @@ const Login = ({navigation}) => {
               return Alert.alert("Please Fill All Fields");
             }
             setLoading(false);   
-            console.log("Login Data==>", {email, password});
+
+            const {data} = await axios.post('/auth/login', 
+                {email, password}
+            );
+            setState(data)
+            await AsyncStorage.setItem('@auth', JSON.stringify(data));
+            Alert.alert(data && data.message);
+            navigation.navigate("UserDashboard");
+            console.log("Login Data==>", data);
                      
         } catch (error) {
             setLoading(false);
+            Alert.alert(error.response.data.message);
             console.log(error);
             
         }

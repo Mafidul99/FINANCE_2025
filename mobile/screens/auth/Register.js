@@ -2,25 +2,34 @@ import { View, Text, StyleSheet, Alert } from 'react-native'
 import React, { useState } from 'react'
 import InputBox from '../../components/Forms/InputBox'
 import SubmitButton from '../../components/Forms/SubmitButton'
+import axios from 'axios'
 
 const Register = ({navigation}) => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
+    const [phone, setPhone] = useState('')
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
+    
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         try {
             setLoading(true);
-            if(!name || !email || !password){
+            if(!name || !email || !password || !phone ){
                 setLoading(false);
               return Alert.alert("Please Fill All Fields");
             }
-            setLoading(false);   
-            console.log("Regiter Data==>", {name, email, password});
+            setLoading(false);
+            const {data} = await axios.post('/auth/register', 
+                {name, email, password, phone}
+            );           
+            Alert.alert(data && data.message);
+            navigation.navigate("Login");
+            console.log("Regiter Data==>", data);
                      
         } catch (error) {
             setLoading(false);
+            Alert.alert(error.response.data.message);
             console.log(error);
             
         }
@@ -37,6 +46,12 @@ const Register = ({navigation}) => {
             keyboardType="email-address"
             autoComplete="email"
             value={email} setValue={setEmail}
+            />
+            <InputBox 
+            inputTitle={"Phone"}  
+            keyboardType="phone"
+            autoComplete="phone"
+            value={phone} setValue={setPhone}
             />
         <InputBox 
             inputTitle={"Password"} 

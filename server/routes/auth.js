@@ -32,6 +32,7 @@ router.post('/register', async (req, res) => {
 
     res.status(201).json({
       status: 'success',
+      message:'Registration Successful Done',
       token,
       data: {
         user: {
@@ -59,13 +60,14 @@ router.post('/login', async (req, res) => {
     const user = await User.findOne({ email }).select('+password');
     
     if (!user || !(await user.correctPassword(password, user.password))) {
-      return res.status(401).json({ message: 'Incorrect email or password' });
+      return res.status(401).json({ message: 'Incorrect credentials & email or password' });
     }
 
     const token = signToken(user._id);
 
     res.json({
       status: 'success',
+      message:'Login Successfully Done',
       token,
       data: {
         user: {
