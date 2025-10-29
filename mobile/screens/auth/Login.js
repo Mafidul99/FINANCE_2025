@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import InputBox from '../../components/Forms/InputBox'
 import SubmitButton from '../../components/Forms/SubmitButton'
 
-const Login = () => {   
+const Login = ({navigation}) => {   
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
@@ -25,7 +25,7 @@ const Login = () => {
         }
     }
 
-  return (
+  return (   
     <View style={styles.container}>
       <Text style={styles.pageTitle}>Login Page</Text>
       <View style={{ marginHorizontal: 20 }}>        
@@ -50,7 +50,9 @@ const Login = () => {
 
         <Text style={styles.linkText}> 
             Crate Your Account 
-            <Text style={styles.link}> Sign Up</Text>
+            <Text style={styles.link} onPress={()=> navigation.navigate("Register")}> 
+                {" "} Sign Up
+            </Text>
         </Text>
     </View>
   )

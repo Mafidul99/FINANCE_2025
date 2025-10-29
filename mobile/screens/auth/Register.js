@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import InputBox from '../../components/Forms/InputBox'
 import SubmitButton from '../../components/Forms/SubmitButton'
 
-const Register = () => {
+const Register = ({navigation}) => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -27,6 +27,7 @@ const Register = () => {
     }
 
   return (
+    
     <View style={styles.container}>
       <Text style={styles.pageTitle}>Register</Text>
       <View style={{ marginHorizontal: 20 }}>
@@ -52,7 +53,9 @@ const Register = () => {
 
         <Text style={styles.linkText}> 
             Already Register Please 
-            <Text style={styles.link}> Login</Text>
+            <Text style={styles.link} onPress={()=> navigation.navigate("Login")}>
+                 {" "} Login
+            </Text>
         </Text>
     </View>
   )
@@ -82,4 +85,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Register
+export default Register;
