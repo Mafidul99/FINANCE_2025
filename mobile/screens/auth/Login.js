@@ -8,7 +8,7 @@ import { AuthContext } from '../../context/AuthContext';
 
 const Login = ({navigation}) => {  
     
-    const [state, setState] = useContext(AuthContext);
+    const [user, setUser] = useContext(AuthContext);
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -26,7 +26,7 @@ const Login = ({navigation}) => {
             const {data} = await axios.post('/auth/login', 
                 {email, password}
             );
-            setState(data)
+            setUser(data)
             await AsyncStorage.setItem('@auth', JSON.stringify(data));
             Alert.alert(data && data.message);
             navigation.navigate("UserDashboard");
