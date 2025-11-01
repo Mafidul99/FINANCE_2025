@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 64255fc0d6c49956edfea82278ce103d8ffa385d
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React, { useContext } from "react";
 import Login from "../../../screens/auth/Login";
