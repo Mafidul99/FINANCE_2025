@@ -4,11 +4,11 @@ import { AuthContext } from '../context/AuthContext'
 import FooterMenu from '../components/Forms/Menus/FooterMenu';
 
 const Home = () => {
-    const [user] = useContext(AuthContext);
+    const [state] = useContext(AuthContext);
   return (
     <>
       <View style={styles.container}>
-        <Text>{JSON.stringify(user,null, 4)}</Text>
+        <Text>{JSON.stringify(state,null, 4)}</Text>
       </View>
       <FooterMenu/>
     </>

@@ -5,7 +5,7 @@ import axios from 'axios';
 const AuthContext = createContext();
 
 const AuthProvider = ({children}) => {
-  const [user, setUser] = useState({
+  const [state, setState] = useState({
     user:null,
     token:"",
   });
@@ -19,20 +19,20 @@ const AuthProvider = ({children}) => {
     const loadLocalStorageData = async () => {
       const data = await AsyncStorage.getItem('@auth');
       const loginData = JSON.parse(data);
-      setUser({...user, user:data?.user, token:data?.token});
+      setState({...state, user:data?.user, token:data?.token});
     };
     loadLocalStorageData();
     setLoading(false);
   }, []);
 
-  const value = {
-    user,
-    loading,
-    setUser,
-  };
+  // const value = {
+  //   state,
+  //   loading,
+  //   setState,
+  // };
 
   return (
-    <AuthContext.Provider value={value}>
+    <AuthContext.Provider value={[state, setState, loading]}>
       {children}
     </AuthContext.Provider>
   )

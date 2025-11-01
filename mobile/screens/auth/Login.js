@@ -8,11 +8,11 @@ import { AuthContext } from '../../context/AuthContext';
 
 const Login = ({navigation}) => {  
     
-    const [user, setUser] = useContext(AuthContext);
+    const [state, setState] = useContext(AuthContext);
 
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [loading, setLoading] = useState(false)
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const handleSubmit = async () => {
         try {
@@ -26,11 +26,11 @@ const Login = ({navigation}) => {
             const {data} = await axios.post('/auth/login', 
                 {email, password}
             );
-            setUser(data)
+            setState(data)
             await AsyncStorage.setItem('@auth', JSON.stringify(data));
             Alert.alert(data && data.message);
-            navigation.navigate("UserDashboard");
-            console.log("Login Data==>", data);
+            navigation.navigate("Dashboard");
+            // console.log("Login Data==>", data);
                      
         } catch (error) {
             setLoading(false);

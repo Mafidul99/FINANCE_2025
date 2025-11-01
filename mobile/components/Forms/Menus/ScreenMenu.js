@@ -1,28 +1,61 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 64255fc0d6c49956edfea82278ce103d8ffa385d
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import React, { useContext } from "react";
+// import React, { useContext } from "react";
 import Login from "../../../screens/auth/Login";
 import Register from "../../../screens/auth/Register";
-import AdminDashboard from "../../../screens/Admin/AdminDashboard";
+// import AdminDashboard from "../../../screens/Admin/AdminDashboard";
 import Home from "../../../screens/Home";
-import { AuthContext } from "../../../context/AuthContext";
+// import { AuthContext } from "../../../context/AuthContext";
 
 
 
   
 const ScreenMenu = () => {
-  const [user] = useContext(AuthContext);
-  const authenticatedUser = user?.user && user?.token;
-
+  // const [state] = useContext(AuthContext);
+  // const authenticatedUser = state?.user && state?.token;
 
   const Stack = createNativeStackNavigator();
 
   return (    
         <Stack.Navigator initialRouteName="Login">
-          {!authenticatedUser ? (
+          <Stack.Screen
+                  name="Dashboard"
+                  component={Home}
+                  options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                name="Login"
+                component={Login}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="Register"
+                component={Register}
+                options={{ headerShown: false }}
+              />
+          {/* {authenticatedUser ? (
+            <>
+            <Stack.Screen
+                  name="Dashboard"
+                  component={Home}
+                  options={{ headerShown: false }}
+                />
+          </>
+          ) : (
+            <>
+            <Stack.Screen
+                name="Login"
+                component={Login}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="Register"
+                component={Register}
+                options={{ headerShown: false }}
+              />
+            </>
+          )} */}
+
+          {/* {!authenticatedUser ? (
             <>
               <Stack.Screen
                 name="Login"
@@ -39,17 +72,17 @@ const ScreenMenu = () => {
             <Stack.Screen
               name="AdminDashboard"
               component={AdminDashboard}
-              options={{ headerShown: true }}
+              options={{ headerShown: false }}
             />
           ) : (
             <>
               <Stack.Screen
-                name="UserDashboard"
+                name="Dashboard"
                 component={Home}
-                options={{ headerShown: true }}
+                options={{ headerShown: false }}
               />
             </>
-          )}
+          )} */}
         </Stack.Navigator>
   );
 }
