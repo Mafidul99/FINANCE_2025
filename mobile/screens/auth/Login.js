@@ -9,7 +9,7 @@ import { Toast } from 'toastify-react-native'
 
 const Login = ({navigation}) => {   
     
-    const [setState] = useContext(AuthContext);
+    const [state, setState] = useContext(AuthContext);
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -20,7 +20,7 @@ const Login = ({navigation}) => {
             setLoading(true);
             if(!email || !password){
                 setLoading(false);
-              return Alert.alert("Please Fill All Fields");
+              return Toast.warn("Please Fill All Fields");
             }
             setLoading(false);   
 
@@ -28,15 +28,15 @@ const Login = ({navigation}) => {
                 {email, password}
             );
             setState(data)
-            await AsyncStorage.setItem('@auth', JSON.stringify(data));
-            navigation.navigate('Dashboard');
-            Toast.success(data && data.message);            
+            await AsyncStorage.setItem("@auth", JSON.stringify(data));
             console.log("Login Data==>", data);
+            navigation.navigate('Dashboard');
+            return Toast.success(data && data.message);            
                      
         } catch (error) {
             setLoading(false);
-            Toast.error(error.response.data.message);
             console.log(error);
+            return Toast.error(error.response.data.message);
             
         }
     }

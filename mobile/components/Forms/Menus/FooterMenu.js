@@ -1,26 +1,32 @@
 import { Text, TouchableOpacity, View , StyleSheet} from 'react-native'
 import React from 'react'
 import { Feather } from '@react-native-vector-icons/feather';
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 // import { FontAwesome } from '@react-native-vector-icons/fontawesome';
 
 const FooterMenu = () => {
+  const navigation = useNavigation();
+
+  // hooks
+  const route = useRoute();
+
   return (
     <View style={styles.container}>
-        <TouchableOpacity>
-        <Feather name="home" style={styles.iconStyle}/>   
+        <TouchableOpacity onPress={() => navigation.navigate('Dashboard')}>
+        <Feather name="home" style={styles.iconStyle} color={route.name === "Dashboard" && "orange"}/>   
         <Text style={styles.textTitle}> Home </Text>
         </TouchableOpacity>
-        <TouchableOpacity>
-        <Feather name="book" style={styles.iconStyle}/>
+        <TouchableOpacity onPress={() => navigation.navigate('About')}>
+        <Feather name="book" style={styles.iconStyle} color={route.name === "About" && "orange"}/>
         <Text style={styles.textTitle}> About </Text>
         </TouchableOpacity>
-        <TouchableOpacity>
-          <Feather name="cast" style={styles.iconStyle}/>
+        <TouchableOpacity onPress={() => navigation.navigate('Post')}>
+          <Feather name="cast" style={styles.iconStyle} color={route.name === "Post" && "orange"}/>
         <Text style={styles.textTitle}> Post </Text>
         </TouchableOpacity>
-        <TouchableOpacity>
-          <Feather name="users" style={styles.iconStyle}/>
+        <TouchableOpacity onPress={() => navigation.navigate('Account')}>
+          <Feather name="users" style={styles.iconStyle} color={route.name === "Account" && "orange"}/>
         <Text style={styles.textTitle}> Account </Text>
         </TouchableOpacity>
     </View>
@@ -31,7 +37,7 @@ const styles = StyleSheet.create({
     container:{
         flexDirection:"row",       
         justifyContent: "space-between", 
-        backgroundColor: "#D4FFC2",
+        backgroundColor: "#e5fbdd",
         paddingHorizontal:30,
         paddingBottom: 45,
         paddingTop:15,

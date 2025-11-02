@@ -9,7 +9,10 @@ export const useAuth = () => {
 };
 
 const AuthProvider = ({children}) => {
-  const [state, setState] = useState(null);
+  const [state, setState] = useState({
+    user:null,
+    token:"",
+  });
   const [loading, setLoading] = useState(false);
 
   //deaflt axios setteing
@@ -17,9 +20,9 @@ const AuthProvider = ({children}) => {
 
   useEffect(() => {
     setLoading(true);
-    const loadLocalStorageData = async () => {
-      let data = await AsyncStorage.getItem("@auth");
-      let loginData = JSON.parse(data);
+      const loadLocalStorageData = async () => {
+      const data = await AsyncStorage.getItem("@auth");
+      const loginData = JSON.parse(data);
       setState({...state, user: loginData?.user, token: loginData?.token});
     };
     loadLocalStorageData();
@@ -28,14 +31,14 @@ const AuthProvider = ({children}) => {
 
 
   // Logout function
-  const logout = async () => {
-    await AsyncStorage.removeItem('@auth');
-    setState({user:null, token:''});
-  };
+  // const logout = async () => {
+  //   await AsyncStorage.removeItem('@auth');
+  //   setState({user:null, token:''});
+  // };
 
 
   return (
-    <AuthContext.Provider value={[state, setState, loading, useAuth, logout]}>
+    <AuthContext.Provider value={[state, setState, loading, useAuth]}>
       {children}
     </AuthContext.Provider>
   )

@@ -10,7 +10,7 @@ const HeaderMenu = ({navigation}) => {
     // Logout function
   const handleLogout = async () => {
     setState({user:null, token:''});    
-    await AsyncStorage.removeItem('@auth');
+    await AsyncStorage.removeItem("@auth");
     Toast.success("Logout Successfully");
     navigation.navigate("Login");
   };
@@ -30,6 +30,11 @@ const styles = StyleSheet.create({
       marginBottom:3,
       alignSelf:"center",
       fontSize:25,
+      backgroundColor: "#fff",
+      fontWeight: "900",
+      color: "#ba160c",
+      padding: 7,
+      borderRadius: 10,
     }
 });
 
