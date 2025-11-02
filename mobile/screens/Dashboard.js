@@ -1,9 +1,9 @@
 import { View, Text, StyleSheet } from 'react-native'
-import React, { useContext } from 'react'
 import { AuthContext } from '../context/AuthContext'
 import FooterMenu from '../components/Forms/Menus/FooterMenu';
+import { useContext } from 'react';
 
-const Home = () => {
+const Dashboard = () => {
     const [state] = useContext(AuthContext);
   return (
     <>
@@ -24,4 +24,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Home;
+export default Dashboard;

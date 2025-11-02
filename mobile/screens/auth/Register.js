@@ -3,8 +3,9 @@ import React, { useState } from 'react'
 import InputBox from '../../components/Forms/InputBox'
 import SubmitButton from '../../components/Forms/SubmitButton'
 import axios from 'axios'
+import { Toast } from 'toastify-react-native'
 
-const Register = ({navigation}) => {
+const Register = ({navigation}) => {  
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
@@ -23,13 +24,13 @@ const Register = ({navigation}) => {
             const {data} = await axios.post('/auth/register', 
                 {name, email, password, phone}
             );           
-            Alert.alert(data && data.message);
+            Toast.success(data && data.message);
             navigation.navigate("Login");
             console.log("Regiter Data==>", data);
                      
         } catch (error) {
             setLoading(false);
-            Alert.alert(error.response.data.message);
+            Toast.error(error.response.data.message);
             console.log(error);
             
         }

@@ -5,10 +5,11 @@ import SubmitButton from '../../components/Forms/SubmitButton';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import { AuthContext } from '../../context/AuthContext';
+import { Toast } from 'toastify-react-native'
 
-const Login = ({navigation}) => {  
+const Login = ({navigation}) => {   
     
-    const [state, setState] = useContext(AuthContext);
+    const [setState] = useContext(AuthContext);
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -28,13 +29,13 @@ const Login = ({navigation}) => {
             );
             setState(data)
             await AsyncStorage.setItem('@auth', JSON.stringify(data));
-            Alert.alert(data && data.message);
-            navigation.navigate("Dashboard");
-            // console.log("Login Data==>", data);
+            navigation.navigate('Dashboard');
+            Toast.success(data && data.message);            
+            console.log("Login Data==>", data);
                      
         } catch (error) {
             setLoading(false);
-            Alert.alert(error.response.data.message);
+            Toast.error(error.response.data.message);
             console.log(error);
             
         }

@@ -1,6 +1,6 @@
 import { Text, TouchableOpacity, View , StyleSheet} from 'react-native'
 import React from 'react'
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome';
+import { Feather } from '@react-native-vector-icons/feather';
 
 // import { FontAwesome } from '@react-native-vector-icons/fontawesome';
 
@@ -8,19 +8,19 @@ const FooterMenu = () => {
   return (
     <View style={styles.container}>
         <TouchableOpacity>
-        <FontAwesome5 name="dashboard" style={styles.iconStyle}/>   
+        <Feather name="home" style={styles.iconStyle}/>   
         <Text style={styles.textTitle}> Home </Text>
         </TouchableOpacity>
         <TouchableOpacity>
-        <FontAwesome5 name="book" style={styles.iconStyle}/>
+        <Feather name="book" style={styles.iconStyle}/>
         <Text style={styles.textTitle}> About </Text>
         </TouchableOpacity>
         <TouchableOpacity>
-          <FontAwesome5 name="plus-square-o" style={styles.iconStyle}/>
+          <Feather name="cast" style={styles.iconStyle}/>
         <Text style={styles.textTitle}> Post </Text>
         </TouchableOpacity>
         <TouchableOpacity>
-          <FontAwesome5 name="user-o" style={styles.iconStyle}/>
+          <Feather name="users" style={styles.iconStyle}/>
         <Text style={styles.textTitle}> Account </Text>
         </TouchableOpacity>
     </View>
